@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Eingabe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        input {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 20px;
+            margin: 5px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #hiddenImage {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gib den Code ein</h1>
+        <p>Gib die vier richtigen Buchstaben ein, um das Bild zu sehen.</p>
+        <input type="text" id="char1" maxlength="1">
+        <input type="text" id="char2" maxlength="1">
+        <input type="text" id="char3" maxlength="1">
+        <input type="text" id="char4" maxlength="1">
+        <button onclick="checkCode()">Überprüfen</button>
+        <div id="hiddenImage">
+            <h2>Herzlichen Glückwunsch!</h2>
+            <img src="uploaded_image.jpg" width="300" alt="Geheimes Bild">
+        </div>
+    </div>
+
+    <script>
+        function checkCode() {
+            var c1 = document.getElementById('char1').value.toUpperCase();
+            var c2 = document.getElementById('char2').value.toUpperCase();
+            var c3 = document.getElementById('char3').value.toUpperCase();
+            var c4 = document.getElementById('char4').value.toUpperCase();
+            
+            if (c1 === 'A' && c2 === 'B' && c3 === 'C' && c4 === 'D') {
+                document.getElementById('hiddenImage').style.display = 'block';
+            } else {
+                alert('Falscher Code. Versuch es noch einmal!');
+            }
+        }
+    </script>
+</body>
+</html>
